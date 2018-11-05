@@ -1,0 +1,25 @@
+{% extends "video_store/base.html" %}
+
+{% block content %}
+
+<div class="col-12 col-lg-8 mx-auto mr-1 movie_detail ml-1 p-4">
+    <a class="class= btn btn-secondary" href="{% url 'update-movie'  movie.slug %}">edit</a>
+    <form method="POST" action="{% url 'delete-movie' movie.slug %}">
+        {% csrf_token %}<input class="btn btn-secondary" type="submit" value="DELETE">
+    </form>
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <img class="img-fluid mx-auto" src="/{{movie.picture.url}}" alt="{{movie.title}} picture">
+        </div>
+        <div class="col-12 col-md-6">
+            <h2>{{movie.title}}</h2>
+            <p> <span>Description : </span> {{movie.synopsis}}</p>
+            <p> <span>Auteur : </span> {{movie.director}}</p>
+            <p> <span>Sortie : </span>{{movie.release_date}}</p>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

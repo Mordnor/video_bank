@@ -1,0 +1,36 @@
+{% extends 'video_store/base.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block content%}
+<div class="col-10 m-5">
+    <form class="form-horizontal login_form logform" method="post" action="."> {% csrf_token %}
+        <input type="hidden" name="next" value="/">
+        <fieldset>
+            <!-- Form Name -->
+            <legend>Identifiez vous !</legend>
+
+            <!-- Text input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textinput">Nom d'utilisateur</label>
+                {{form.username}}
+            </div>
+
+            <!-- Password input-->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="passwordinput">Mot de passe</label>
+                {{form.password}}
+            </div>
+
+            <!-- Button -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="singlebutton"></label>
+                <div class="col-md-4 divlog">
+                    <input type="submit" class="login" name="singlebutton" value="Login">
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+{% endblock %}

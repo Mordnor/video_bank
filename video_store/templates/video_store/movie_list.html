@@ -1,0 +1,24 @@
+{% extends "video_store/base.html" %}
+{% block content %}
+
+
+<div class="col-12">
+    <div class="row">
+        {% for movie in object_list %}
+        <div class="col-12 col-md-6 col-lg-4 p-1 post_hover ">
+            <a href="{% url 'detail-movie' movie.slug %}">
+                <img class="img-fluid" src="{{movie.picture.url}}" alt="">
+                <div class="overlay">
+                    <div class="text">
+                        <h3>{{ movie.title }}</h3>
+                        <p>{{movie.synopsis}}</p>
+                        <small>{{movie.director}}</small>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

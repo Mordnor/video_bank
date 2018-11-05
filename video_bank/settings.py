@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    'userena',
+    'guardian',
+    'easy_thumbnails',
+    'autoslug',
 
     'video_store',
 ]
@@ -50,6 +56,23 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# Userena
+# https://django-userena-ce.readthedocs.io/en/latest/index.html
+
+
+
+AUTHENTICATION_BACKENDS = (  
+    'userena.backends.UserenaAuthenticationBackend',  
+    'guardian.backends.ObjectPermissionBackend',  
+    'django.contrib.auth.backends.ModelBackend',  
+)  
+
+ANONYMOUS_USER_NAME = 'anonymous'
+
+AUTH_PROFILE_MODULE  = 'video_store.Customer'
+
+
 
 ROOT_URLCONF = 'video_bank.urls'
 
@@ -131,4 +154,10 @@ STATICFILES_DIRS = [
 
 LOGIN_URL = "/login"
 LOGOUT_URL = "/logout"
+
+SITE_ID = 1
+
+# Userena Settings
+
+USERENA_SIGNIN_AFTER_SIGNUP = True
 
