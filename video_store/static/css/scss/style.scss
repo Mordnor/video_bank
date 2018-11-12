@@ -10,6 +10,12 @@ header {
         a {
             color: white;
         }
+
+        .log {
+            a {
+                display: inline;
+            }
+        }
     }
 }
 
@@ -68,5 +74,13 @@ header {
         input {
             margin: 1rem 0;
         }
+    }
+}
+
+// USER DETAIL / LIST / FORM
+
+.user_detail {
+    h2 {
+        text-align: center;
     }
 }

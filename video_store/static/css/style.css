@@ -6,6 +6,8 @@ header {
     box-shadow: 2px 3px 5px 0px rgba(0, 0, 0, 0.75); }
     header nav a {
       color: white; }
+    header nav .log a {
+      display: inline; }
 
 .post_hover:hover .overlay {
   opacity: 1; }
@@ -42,5 +44,8 @@ header {
   display: inline; }
   .movie_detail form input {
     margin: 1rem 0; }
+
+.user_detail h2 {
+  text-align: center; }
 
 /*# sourceMappingURL=style.css.map */
