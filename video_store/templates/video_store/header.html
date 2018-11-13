@@ -1,3 +1,5 @@
+{% load static %}
+{% load static i18n %}
 <header>
     <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark  ">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -7,30 +9,31 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="/">Movie <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Movie <span class="sr-only">{% trans 'liste des films' %}</span></a>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        Create
+                        {% trans 'création' %}
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{% url 'create-movie' %}">Movie</a>
+                        <a class="dropdown-item" href="{% url 'create-movie' %}">{% trans 'film' %}</a>
                     </div>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 {% if request.user.is_authenticated %}
                 <li class="nav-item log">
-                    <a class="nav-link" href="{% url 'userena_profile_detail' request.user.username %}">Profil</a>
-                    <a class="nav-link" href="{% url 'list-rent-movie'  request.user.username %}">Loué</a>
-                    <a class="nav-link" href="/logout">Deconnexion</a>
+                    <a class="nav-link" href="{% url 'userena_profile_detail' request.user.username %}">
+                        {% trans 'mon profile' %}</a>
+                    <a class="nav-link" href="{% url 'list-rent-movie'  request.user.username %}">{% trans 'loué' %}</a>
+                    <a class="nav-link" href="/logout">{% trans 'déconnexion' %}</a>
                 </li>
                 {% else %}
                 <li class="nav-item log">
-                    <a class="nav-link" href="/login">Connexion</a>
-                    <a class="nav-link" href="{% url 'create-user' %}">Register</a>
+                    <a class="nav-link" href="/login">{% trans 'connexion' %}</a>
+                    <a class="nav-link" href="{% url 'create-user' %}">{% trans 'inscription' %}</a>
                 </li>
                 {% endif %}
             </ul>

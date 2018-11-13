@@ -39,22 +39,26 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 
+
+    'video_store',
+
     'userena',
     'guardian',
     'easy_thumbnails',
     'autoslug',
+    'parler',
 
-    'video_store',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware', 
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 ]
 
 # Userena
@@ -127,8 +131,29 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
+from django.utils.translation import ugettext_lazy as _
 
-LANGUAGE_CODE = 'en-en'
+LOCALE_PATHS = ( os.path.join(BASE_DIR, 'locale'), )
+
+LANGUAGE_CODE = 'fr'
+
+LANGUAGES = [
+    ('fr', _('Francais')),
+    ('en', _('Anglais')),
+]
+
+PARLER_LANGUAGES = {
+    1: (
+        {'code': 'fr',},
+        {'code': 'en',},
+        
+    ),
+    'default': {
+        'fallbacks': ['fr'],          # defaults to PARLER_DEFAULT_LANGUAGE_CODE
+        'hide_untranslated': False,   # the default; let .active_translations() return fallbacks too.
+    }
+}
+
 
 TIME_ZONE = 'Europe/Paris'
 
@@ -155,10 +180,10 @@ STATICFILES_DIRS = [
 LOGIN_URL = "/login"
 LOGOUT_URL = "/logout"
 
-SITE_ID = 1
 
 # Userena Settings
 
 USERENA_SIGNIN_AFTER_SIGNUP = True
 USERENA_ACTIVATION_REQUIRED = False
+SITE_ID = 1
 

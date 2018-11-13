@@ -1,4 +1,5 @@
 {% extends "video_store/base.html" %}
+{% load parler_tags %}
 {% block content %}
 
 
@@ -6,8 +7,8 @@
     <div class="row">
         {% for movie in object_list %}
         <div class="col-12 col-md-6 col-lg-4 p-1 post_hover ">
-            <a href="{% url 'detail-movie' movie.slug %}">
-                <img class="img-fluid" src="{{movie.picture.url}}" alt="">
+            <a href="{% url 'detail-movie' movie|get_translated_field:'slug'  %}">
+                <img class="img-fluid" src="/{{movie.picture.url}}" alt="{{movie.title}}">
                 <div class="overlay">
                     <div class="text">
                         <h3>{{ movie.title }}</h3>

@@ -7,7 +7,7 @@ from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import ListView, DetailView, View
 from django.views.generic.edit import UpdateView, CreateView, DeleteView
-
+from parler.views import TranslatableSlugMixin
 from django.contrib.auth.models import User
 
 
@@ -25,14 +25,14 @@ class FormMovie(forms.ModelForm):
         model = Movie
         fields = ('rented', )
 
-class MovieDetailView(DetailView):
+class MovieDetailView(TranslatableSlugMixin , DetailView):
     model = Movie
     def get_context_data(self, **kwargs):
         context = DetailView.get_context_data(self, **kwargs)
         context["FormRented"] = FormMovie(initial={"movie" : self.object})
         return context
 
-class MovieRentedView(View):
+class MovieRentedView(TranslatableSlugMixin, View):
     model = Movie
     def post(self, request, *args, **kwargs):
         user = request.user
@@ -46,7 +46,7 @@ class MovieRentedView(View):
         return HttpResponseRedirect(reverse('list-movie'))
 
 
-class MovieUpdateView(UpdateView):
+class MovieUpdateView(TranslatableSlugMixin, UpdateView):
     model = Movie
     fields = '__all__'
     template_name = 'video_store/movie_update_form.html'

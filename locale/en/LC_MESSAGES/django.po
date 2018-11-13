@@ -1,0 +1,153 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-11-12 14:14+0100\n"
+"PO-Revision-Date: 2018-11-12 14:14+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#: video_bank/settings.py:138
+msgid "Francais"
+msgstr "French"
+
+#: video_bank/settings.py:139
+msgid "Anglais"
+msgstr "English"
+
+#: video_store/models.py:22
+msgid "acteur"
+msgstr "actor"
+
+#: video_store/models.py:23
+msgid "pays"
+msgstr "country"
+
+#: video_store/models.py:24
+#: video_store/templates/video_store/movie_detail.html:17
+msgid "réalisateur"
+msgstr "director"
+
+#: video_store/models.py:25
+#: video_store/templates/video_store/movie_detail.html:18
+msgid "durée"
+msgstr "length"
+
+#: video_store/models.py:26
+msgid "image"
+msgstr "picture"
+
+#: video_store/models.py:27
+#: video_store/templates/video_store/movie_detail.html:19
+msgid "date de sortie"
+msgstr "release date"
+
+#: video_store/models.py:28 video_store/templates/video_store/header.html:30
+msgid "loué"
+msgstr "rented"
+
+#: video_store/models.py:29
+msgid "slug"
+msgstr "slug"
+
+#: video_store/models.py:30
+#: video_store/templates/video_store/movie_detail.html:16
+msgid "synopsis"
+msgstr "synopsis"
+
+#: video_store/models.py:31
+msgid "titre"
+msgstr "title"
+
+#: video_store/models.py:32
+msgid "lien vers trailer"
+msgstr "trailer's url"
+
+#: video_store/models.py:33
+msgid "genre"
+msgstr "type"
+
+#: video_store/models.py:40
+msgid "utilisateur"
+msgstr "user"
+
+#: video_store/models.py:44
+msgid "client"
+msgstr "customer"
+
+#: video_store/models.py:45 video_store/templates/video_store/header.html:21
+msgid "film"
+msgstr "movie"
+
+#: video_store/models.py:46
+msgid "date de location"
+msgstr "checkout date"
+
+#: video_store/models.py:47
+msgid "date de retour"
+msgstr "return date"
+
+#: video_store/templates/registration/login.html:11
+msgid "identifiez vous"
+msgstr "log in"
+
+#: video_store/templates/registration/login.html:15
+msgid "nom d'utilisateur"
+msgstr "username"
+
+#: video_store/templates/registration/login.html:21
+msgid "mot de passe"
+msgstr "password"
+
+#: video_store/templates/video_store/header.html:12
+msgid "liste des films"
+msgstr "film list"
+
+#: video_store/templates/video_store/header.html:18
+msgid "création"
+msgstr "create"
+
+#: video_store/templates/video_store/header.html:29
+msgid "mon profile"
+msgstr "profil"
+
+#: video_store/templates/video_store/header.html:31
+msgid "déconnexion"
+msgstr "log out"
+
+#: video_store/templates/video_store/header.html:35
+msgid "connexion"
+msgstr "log in"
+
+#: video_store/templates/video_store/header.html:36
+msgid "inscription"
+msgstr "register"
+
+#: video_store/templates/video_store/movie_detail.html:21
+msgid "plus disponible"
+msgstr "not available"
+
+#, fuzzy
+#~| msgid "acteur"
+#~ msgid "auteur"
+#~ msgstr "actor"
+
+#, fuzzy
+#~| msgid "date de sortie"
+#~ msgid "sortie"
+#~ msgstr "release date"
+
+#, fuzzy
+#~| msgid "inscription"
+#~ msgid "description"
+#~ msgstr "register"

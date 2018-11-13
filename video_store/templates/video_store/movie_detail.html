@@ -1,5 +1,6 @@
 {% extends "video_store/base.html" %}
-
+{% load static i18n %}
+{% load parler_tags %}
 {% block content %}
 
 <div class="col-12 col-lg-8 mx-auto mr-1 movie_detail ml-1 p-4">
@@ -13,13 +14,14 @@
         </div>
         <div class="col-12 col-md-6">
             <h2>{{movie.title}}</h2>
-            <p> <span>Description : </span> {{movie.synopsis}}</p>
-            <p> <span>Auteur : </span> {{movie.director}}</p>
-            <p> <span>Sortie : </span>{{movie.release_date}}</p>
+            <p> <span>{% trans 'synopsis' %} : </span> {{movie.synopsis}}</p>
+            <p> <span>{% trans 'réalisateur' %} : </span> {{movie.director}}</p>
+            <p> <span>{% trans 'durée' %} : </span> {{movie.lenght}}</p>
+            <p> <span>{% trans 'date de sortie' %} : </span>{{movie.release_date}}</p>
             {% if movie.rented == True %}
-            <p class="bg-danger">Plus d'exemplaire disponible</p>
+            <p class="bg-danger">{% trans 'plus disponible' %}</p>
             {% else %}
-            <form action="{% url 'rented-movie' movie.slug %}" method="post">
+            <form action="{% url 'rented-movie'  movie|get_translated_field:'slug' %}" method="post">
                 {% csrf_token %}
                 <input type="hidden" name="movie_slug" value="{{movie.slug}}">
                 <input type="submit" value="Louer">
