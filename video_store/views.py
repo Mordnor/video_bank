@@ -32,18 +32,20 @@ class MovieDetailView(TranslatableSlugMixin , DetailView):
         context["FormRented"] = FormMovie(initial={"movie" : self.object})
         return context
 
-class MovieRentedView(TranslatableSlugMixin, View):
+class MovieRentedView(View):
     model = Movie
     def post(self, request, *args, **kwargs):
         user = request.user
         customer = Customer.objects.get(user=user)
         slug = request.POST.get('movie_slug')
-        movie = Movie.objects.get(slug=slug)
+        movie = Movie.objects.translated(slug=slug).first()
         movie.rented = True 
         movie.save()
         movieRent = MovieRent(customer=customer, movie = movie)
         movieRent.save()
         return HttpResponseRedirect(reverse('list-movie'))
+    
+
 
 
 class MovieUpdateView(TranslatableSlugMixin, UpdateView):

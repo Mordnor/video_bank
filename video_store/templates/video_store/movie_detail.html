@@ -21,7 +21,7 @@
             {% if movie.rented == True %}
             <p class="bg-danger">{% trans 'plus disponible' %}</p>
             {% else %}
-            <form action="{% url 'rented-movie'  movie|get_translated_field:'slug' %}" method="post">
+            <form action="{% url 'rented-movie'  movie|get_translated_field:'slug'   %}" method="post">
                 {% csrf_token %}
                 <input type="hidden" name="movie_slug" value="{{movie.slug}}">
                 <input type="submit" value="Louer">

@@ -32,12 +32,12 @@ from video_store.views import MovieCreateView, MovieDeleteView, MovieRentedView,
 
 urlpatterns = i18n_patterns(
     url(r'^admin/', admin.site.urls),
+    url(r'^movie/(?P<slug>[-\w]+)/rented/$', MovieRentedView.as_view(), name='rented-movie'),
 
     url(r'^login/$', auth_views.LoginView.as_view()),
 
     url(r'^$', MovieListView.as_view(), name='list-movie'),
     url(r'^movie/create/$', MovieCreateView.as_view(), name='create-movie'),
-    url(r'^movie/(?P<slug>[-\w]+)/rented/$', MovieRentedView.as_view(), name='rented-movie'),
     url(r'^movie/(?P<slug>[-\w]+)/$', MovieDetailView.as_view(), name='detail-movie'),
     url(r'^movie/(?P<slug>[-\w]+)/update/$', MovieUpdateView.as_view(), name='update-movie'),
 )
